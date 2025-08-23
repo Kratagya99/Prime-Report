@@ -2,13 +2,12 @@ import React, { Component } from 'react'
 import NewsItem from './NewsItem'
 
 export class News extends Component {
-    articles=[]
 
   constructor(){
     super();
     console.log("This is a constructor");
     this.state={
-      articles: this.articles,
+      articles: [],
       loading:false
     }
   }

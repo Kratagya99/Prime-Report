@@ -2,9 +2,7 @@ import React, { Component } from 'react'
 import NewsItem from './NewsItem'
 
 export class News extends Component {
-    articles=[
-    
-]
+    articles=[]
 
   constructor(){
     super();
@@ -15,7 +13,7 @@ export class News extends Component {
     }
   }
   async componentDidMount() {
-  let url = "https://newsapi.org/v2/top-headlines?q=india&apiKey=;
+  let url = `https://newsapi.org/v2/top-headlines?q=india&apiKey=${process.env.REACT_APP_NEWS_API_KEY}`;
   let data = await fetch(url);
   let parsedData = await data.json();
   console.log(parsedData);

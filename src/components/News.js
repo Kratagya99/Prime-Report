@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import NewsItem from './NewsItem'
-
+import Loading from './Loading';
 export class News extends Component {
 
   constructor(){
@@ -8,7 +8,7 @@ export class News extends Component {
     console.log("This is a constructor");
     this.state={
       articles: [],
-      loading:false,
+      buffering:false,
       page:1,
       totalResults: 0
     }
@@ -20,6 +20,7 @@ export class News extends Component {
 
   fetchNews = async (page) => {
   let url = `https://newsapi.org/v2/top-headlines?country=us&apiKey=${process.env.REACT_APP_NEWS_API_KEY}&page=${page}&pageSize=20`;
+  this.setState({buffering:true});
   let data = await fetch(url);
   let parsedData = await data.json();
   console.log(parsedData);
@@ -33,7 +34,8 @@ export class News extends Component {
   this.setState({
     articles: filteredArticles,
     totalResults: parsedData.totalResults || 0,
-    page: page
+    page: page,
+    buffering:false
   });
 }
 
@@ -51,22 +53,32 @@ export class News extends Component {
   }
 
   render() {
-    return (
-      <div>
-        <h2 className='text-center my-4'>US Top Headlines</h2>
+  return (
+    <div>
+      <h2 className='text-center my-4'>US Top Headlines</h2>
+
+      {this.state.buffering ? (
+        <Loading />
+      ) : (
         <div className='container my-3'>
           <div className='row'>
             {this.state.articles.map((element, index) => {
-              return <div className='col-md-3' key={index}>
-                <NewsItem 
-                  title={element.title ? element.title.slice(0,50) : ""} 
-                  description={element.description ? element.description.slice(0,88) : ""} 
-                  imgURL={element.urlToImage} 
-                  newsURL={element.url}/>
-              </div>   
+              return (
+                <div className='col-md-3' key={index}>
+                  <NewsItem 
+                    title={element.title ? element.title.slice(0,50) : ""} 
+                    description={element.description ? element.description.slice(0,88) : ""} 
+                    imgURL={element.urlToImage} 
+                    newsURL={element.url}
+                  />
+                </div>   
+              )
             })}
           </div>
         </div>
+      )}
+
+      {!this.state.buffering && (
         <div className="d-flex justify-content-between container">
           <button 
             disabled={this.state.page <= 1} 
@@ -83,9 +95,11 @@ export class News extends Component {
             Next &rarr;
           </button>
         </div>
-      </div>
-    )
-  }
+      )}
+    </div>
+  )
+}
+
 }
 
 export default News

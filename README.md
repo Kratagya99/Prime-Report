@@ -1,28 +1,25 @@
-Perfect 👌 Since you built **Prime Report** with **React**, here’s an updated **README.md** tailored for your project:
-
----
-
 # Prime Report 📰
 
-Prime Report is a **React-based news web application** that fetches real-time news from the [NewsAPI](https://newsapi.org/).
-Users can select their **preferred country** and **news category** before fetching the latest headlines.
+Prime Report is a **React-based news web application** built using **class-based components**.
+It fetches real-time news from the [NewsAPI](https://newsapi.org/) and allows users to select their **preferred country** and **news category** before viewing the latest headlines.
 
 ---
 
 ## 🚀 Features
 
-* Built with **React** (component-based, fast, and responsive)
+* Developed with **React (Class-Based Components)**
 * Fetches live news from **NewsAPI**
-* Filter news by **country**
-* Filter news by **category** (business, technology, sports, health, etc.)
+* Filter news by **country** (India, USA, UK, Australia, etc.)
+* Filter news by **category** (Business, Sports, Technology, Health, etc.)
 * Responsive and minimal UI
+* Clickable news cards with direct links to full articles
 
 ---
 
 ## 🛠️ Tech Stack
 
-* **Frontend**: React (with Hooks/Functional Components)
-* **Styling**: CSS (or Tailwind/Bootstrap if you used one – mention here)
+* **Frontend**: React (Class Components)
+* **Styling**: CSS (mention if you used Bootstrap/Tailwind)
 * **API**: [NewsAPI](https://newsapi.org/)
 
 ---
@@ -66,13 +63,23 @@ Users can select their **preferred country** and **news category** before fetchi
 
 ## 📸 Screenshots
 
-*(Add screenshots/gifs of your app UI here)*
+### 🏳 Country Selection
+
+![Country Selection](./screenshots/country.png)
+
+### 📰 Category Selection
+
+![Category Selection](./screenshots/category.png)
+
+### 📊 News Feed Example
+
+![News Feed](./screenshots/news.png)
 
 ---
-
 
 ## 🙌 Contributing
 
 Contributions are welcome!
 Fork the repo → Create a new branch → Make your changes → Submit a PR.
 
+👉 Do you want me to also include a **short code snippet of your main class component** (like `News.js`) in the README so that contributors can instantly understand how fetching is done?

@@ -81,5 +81,3 @@ It fetches real-time news from the [NewsAPI](https://newsapi.org/) and allows us
 
 Contributions are welcome!
 Fork the repo → Create a new branch → Make your changes → Submit a PR.
-
-👉 Do you want me to also include a **short code snippet of your main class component** (like `News.js`) in the README so that contributors can instantly understand how fetching is done?
